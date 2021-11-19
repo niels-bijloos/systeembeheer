@@ -1,4 +1,4 @@
-root:$6$7gNZt26u$q.dNyN7HfsYtaczvXqeUG9p6/lt3wFkUv7tgmRCfm1ElZo/FxoeOs1GQ5wYnF/.OQ/8qM879JZK2CfPfwUJCy/:18891:0:99999:7:::
+root:$6$YGBpoR.qclzMy/TY$/lpeMqKuxFWUcrYtYzSbpaAUMBhWi9nXpBkOOpORXEvtO0Fs2v8VpgT9UDWnXG5d.pL1feL.jL6Nhg1Q8EcKF.:18917:0:99999:7:::
 daemon:*:18377:0:99999:7:::
 bin:*:18377:0:99999:7:::
 sys:*:18377:0:99999:7:::
@@ -27,3 +27,5 @@ systemd-timesync:*:18377:0:99999:7:::
 uuidd:*:18377:0:99999:7:::
 tcpdump:*:18377:0:99999:7:::
 systemd-coredump:!!:18891::::::
+check:$6$I.moqscVn82snuSS$vgDNKT3NThL1FVHeumk0xugWcvxJJIJx2JcIVUlgcUbomqLK8T/Vp2O9ZzzRtd5FDKK5.mijBZgAYXi2m7tHr/:18910:0:99999:7:::
+ntp:*:18950:0:99999:7:::
