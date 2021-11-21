@@ -29,3 +29,6 @@ tcpdump:x:109:116::/nonexistent:/usr/sbin/nologin
 systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
 check:x:1000:1000::/home/check:/bin/sh
 ntp:x:110:118::/nonexistent:/usr/sbin/nologin
+bind:x:111:119::/var/cache/bind:/usr/sbin/nologin
+mysql:x:112:120:MySQL Server,,,:/nonexistent:/bin/false
+niels:x:1001:1001::/home/niels:/bin/bash

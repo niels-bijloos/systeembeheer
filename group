@@ -18,7 +18,7 @@ voice:x:22:
 cdrom:x:24:
 floppy:x:25:
 tape:x:26:
-sudo:x:27:check
+sudo:x:27:check,niels
 audio:x:29:
 dip:x:30:
 www-data:x:33:
@@ -57,3 +57,6 @@ systemd-coredump:x:999:
 check:x:1000:
 incron:x:117:
 ntp:x:118:
+bind:x:119:
+mysql:x:120:
+niels:x:1001:
