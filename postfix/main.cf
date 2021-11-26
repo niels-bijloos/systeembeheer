@@ -1,21 +1,35 @@
-# See /usr/share/postfix/main.cf.dist for a commented, more complete version
-
-smtpd_banner = $myhostname ESMTP $mail_name (Debian/GNU)
+smtpd_banner = $myhostname ESMTP $mail_name
 biff = no
-
-# appending .domain is the MUA's job.
 append_dot_mydomain = no
+readme_directory = no
 
-# Uncomment the next line to generate "delayed mail" warnings
-#delay_warning_time = 4h
+# TLS parameters
+smtp_use_tls = yes
+smtp_tls_security_level = may
+smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 
+smtpd_use_tls = yes
+smtpd_tls_security_level = may
+smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
+smtpd_tls_cert_file = /etc/letsencrypt/live/niels-bijloos.sb.uclllabs.be/fullchain.pem
+smtpd_tls_key_file = /etc/letsencrypt/live/niels-bijloos.sb.uclllabs.be/privkey.pem
+smtpd_relay_restrictions = permit_mynetworks, permit_sasl_authenticated,  reject_unauth_destination
+
+smtpd_sasl_auth_enable = no
+smtpd_sasl_type = dovecot
+smtpd_sasl_path = private/auth
+
+virtual_transport = dovecot
+virtual_mailbox_domains = /etc/postfix/virtual_mailbox_domains
+
+myhostname = mx.niels-bijloos.sb.uclllabs.be
+myorigin = /etc/mailname
+mydestination = mx.niels-bijloos.sb.uclllabs.be, localhost.$mydomain, localhost
+relayhost = 
+mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
+mailbox_size_limit = 0
+recipient_delimiter = +
+inet_interfaces = all
+inet_protocols = all
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
-mydestination = $myhostname, localhost.$mydomain, localhost
-relayhost = 
-mynetworks = 127.0.0.0/8
-inet_interfaces = loopback-only
-recipient_delimiter = +
-
-compatibility_level = 2
-

@@ -1,0 +1,54 @@
+#!/bin/bash
+if [ "$EUID" -ne 0 ]
+  then echo "not running as root";
+  exit 1;
+fi
+
+zone=$1
+
+FILENAME='db.'"$zone"'.niels-bijloos.sb.uclllabs.be'
+FILE=/etc/bind/$FILENAME
+if test -f "$FILE"; then
+
+        echo 'Zone '"$1"' already exists'
+else
+
+echo 'Creating new zone'
+echo -e 'zone "'"$zone"'.niels-bijloos.sb.uclllabs.be" {
+    type master;
+    file "/etc/bind/db.'"$zone"'.niels-bijloos.sb.uclllabs.be";
+    notify yes;
+};
+' >> /etc/bind/named.conf.local
+
+
+echo 'Creating :db.'"$zone"'.niels-bijloos.sb.uclllabs.be' 
+echo -e '$TTL 604800
+@    IN    SOA    ns.'"$zone"'.niels-bijloos.sb.uclllabs.be. root.'"$zone"'.niels-bijloos.sb.uclllabs.be.(
+       20211101		; Serial
+            300 	; Refresh
+            300		; Retry
+            300		; Expire
+            300)        ; Negative Cache TTl
+;
+@    IN    NS    ns.'"$zone"'.niels-bijloos.sb.uclllabs.be.
+@    IN    NS    ns.niels-bijloos.sb.uclllabs.be.
+ns   IN    A    193.191.177.182
+@    IN    A    193.191.177.182 ' > /etc/bind/db.''"$zone"''.niels-bijloos.sb.uclllabs.be
+
+
+DBFILE=/etc/bind/db.niels-bijloos.sb.uclllabs.be
+echo "$zone"'      IN      NS      ns.niels-bijloos.sb.uclllabs.be.' >> $DBFILE
+
+
+Serial=$(grep 'Serial' /etc/bind/db.niels-bijloos.sb.uclllabs.be)
+SerialNumber=$(echo $Serial | sed 's/[^0-9]*//g')
+((SerialNumber++))
+newSerial='                                '"$SerialNumber"'        ;Serial'
+sed -i "s/.*Serial.*/\t\t\t      $newSerial/g" /etc/bind/db.niels-bijloos.sb.uclllabs.be
+
+
+
+echo 'Restarting bind9 '
+systemctl restart bind9
+echo "Done"

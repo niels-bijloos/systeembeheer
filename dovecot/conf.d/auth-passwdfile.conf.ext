@@ -1,0 +1,30 @@
+# Authentication for passwd-file users. Included from 10-auth.conf.
+#
+# passwd-like file with specified location.
+# <doc/wiki/AuthDatabase.PasswdFile.txt>
+
+ 
+passdb {
+  driver = passwd-file
+  args = /etc/dovecot/passwd
+}
+
+userdb {
+  driver = static
+  args =  home=/var/vmail/%n
+  # Default fields that can be overridden by passwd-file
+  #default_fields = quota_rule=*:storage=1G
+
+  # Override fields from passwd-file
+  # override_fields = home=/home/virtual/%n
+}
+
+mail_uid = vmail
+mail_gid = vmail
+
+  # Default fields that can be overridden by passwd-file
+  #default_fields = quota_rule=*:storage=1G
+
+  # Override fields from passwd-file
+  #override_fields = home=/home/virtual/%u
+

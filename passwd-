@@ -31,4 +31,6 @@ check:x:1000:1000::/home/check:/bin/sh
 ntp:x:110:118::/nonexistent:/usr/sbin/nologin
 bind:x:111:119::/var/cache/bind:/usr/sbin/nologin
 mysql:x:112:120:MySQL Server,,,:/nonexistent:/bin/false
-niels:x:1001:1001::/home/niels:/bin/bash
+niels:x:1001:1001:Niels Bijloos,,,:/home/niels:/bin/bash
+dovecot:x:113:121:Dovecot mail server,,,:/usr/lib/dovecot:/usr/sbin/nologin
+dovenull:x:114:122:Dovecot login user,,,:/nonexistent:/usr/sbin/nologin

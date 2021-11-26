@@ -18,7 +18,7 @@ voice:*::
 cdrom:*::
 floppy:*::
 tape:*::
-sudo:*::check
+sudo:*::check,niels
 audio:*::
 dip:*::
 www-data:*::
@@ -60,3 +60,5 @@ ntp:!::
 bind:!::
 mysql:!::
 niels:!::
+dovecot:!::
+dovenull:!::
