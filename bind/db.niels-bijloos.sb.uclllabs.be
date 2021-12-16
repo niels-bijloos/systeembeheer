@@ -3,7 +3,7 @@
 ;
 $TTL	604800
 @	IN	SOA	ns.niels-bijloos.sb.uclllabs.be. root.niels-bijloos.sb.uclllabs.be. (
-		     2021112013		; Serial
+		     2021112017		; Serial
 			 604800		; Refresh
 			  86400		; Retry
 			2419200		; Expire
@@ -37,4 +37,10 @@ _acme-challenge.secure		IN	TXT	lugTD0Q-OFGeXXUWlg5c98FJvtTnn5A7dStJt1DdLTg
 _acme-challenge.supersecure	IN	TXT	tjFjdHluq4fS4VklQA6dpcZdgK7pRnv_rUP4IeHtXDw
 
 ; MX records
+AAAA				IN	MX	10	mx.niels-bijloos.sb.uclllabs.be.
 niels-bijloos.sb.uclllabs.be.	IN	MX	10	mx.niels-bijloos.sb.uclllabs.be.
+
+;AAAA records 
+@	IN	AAAA	2001:6a8:2880:a077::b6
+ns	IN	AAAA	2001:6a8:2880:a077::b6
+mx	IN	AAAA	2001:6a8:2880:a077::b6

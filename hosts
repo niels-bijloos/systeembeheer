@@ -4,6 +4,4 @@ ff02::1		ip6-allnodes
 ff02::2		ip6-allrouters
 # --- BEGIN PVE ---
 193.191.177.182 niels-bijloos.uclllabs.be niels-bijloos
-193.191.177.182 www1.niels-bijloos.sb.uclllabs.be
-193.191.177.182 www2.niels-bijloos.sb.uclllabs.be
 # --- END PVE ---
