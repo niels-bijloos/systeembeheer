@@ -1,0 +1,21 @@
+[0;1;32m●[0m named.service - BIND Domain Name Server
+     Loaded: loaded (/lib/systemd/system/named.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Sat 2022-04-16 16:11:32 CEST; 4s ago
+       Docs: man:named(8)
+   Main PID: 434913 (named)
+      Tasks: 5 (limit: 386748)
+     Memory: 13.8M
+        CPU: 84ms
+     CGroup: /system.slice/named.service
+             └─434913 /usr/sbin/named -f -u bind
+
+apr 16 16:11:32 niels-bijloos named[434913]: zone localhost/IN: loaded serial 2
+apr 16 16:11:32 niels-bijloos named[434913]: zone 255.in-addr.arpa/IN: loaded serial 1
+apr 16 16:11:32 niels-bijloos named[434913]: zone niels-bijloos.sb.uclllabs.be/IN: loaded serial 2021112019
+apr 16 16:11:32 niels-bijloos named[434913]: [0;1;39m[0;1;31m[0;1;39mall zones loaded[0m
+apr 16 16:11:32 niels-bijloos named[434913]: [0;1;39m[0;1;31m[0;1;39mrunning[0m
+apr 16 16:11:32 niels-bijloos named[434913]: zone niels-bijloos.sb.uclllabs.be/IN: sending notifies (serial 2021112019)
+apr 16 16:11:32 niels-bijloos named[434913]: managed-keys-zone: Key 20326 for zone . is now trusted (acceptance timer complete)
+apr 16 16:11:32 niels-bijloos named[434913]: resolver priming query complete
+apr 16 16:11:33 niels-bijloos named[434913]: client @0x7fc4d8026ab0 193.191.177.4#51243 (niels-bijloos.sb.uclllabs.be): transfer of 'niels-bijloos.sb.uclllabs.be/IN': AXFR started (serial 2021112019)
+apr 16 16:11:33 niels-bijloos named[434913]: client @0x7fc4d8026ab0 193.191.177.4#51243 (niels-bijloos.sb.uclllabs.be): transfer of 'niels-bijloos.sb.uclllabs.be/IN': AXFR ended: 1 messages, 25 records, 763 bytes, 0.001 secs (763000 bytes/sec)

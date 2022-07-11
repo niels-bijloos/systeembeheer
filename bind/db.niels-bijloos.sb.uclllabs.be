@@ -3,7 +3,7 @@
 ;
 $TTL	604800
 @	IN	SOA	ns.niels-bijloos.sb.uclllabs.be. root.niels-bijloos.sb.uclllabs.be. (
-		     2021112017		; Serial
+		     2021112019		; Serial
 			 604800		; Refresh
 			  86400		; Retry
 			2419200		; Expire
